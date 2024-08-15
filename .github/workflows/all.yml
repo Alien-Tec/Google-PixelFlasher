@@ -1,4 +1,4 @@
-name: Build for All platforms
+name: Build for All platforms manual
 
 env:
   ACTIONS_RUNTIME_TOKEN: ${{ secrets.GITHUB_TOKEN }}
