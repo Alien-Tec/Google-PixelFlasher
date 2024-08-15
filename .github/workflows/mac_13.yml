@@ -146,11 +146,11 @@ jobs:
         run: mv dist/PixelFlasher.dmg dist/PixelFlasher_MacOS_13.dmg
         if: ${{ steps.build_app.outcome == 'success' }}
 
-      - name: Get sha256
-        run: |
-          shasum -a 256 dist/PixelFlasher_MacOS_13.dmg > dist/PixelFlasher_MacOS_13.dmg.sha256
-          cat dist/PixelFlasher_MacOS_13.dmg.sha256
-        if: ${{ steps.build_app.outcome == 'success' }}
+      #- name: Get sha256
+      #  run: |
+      #    shasum -a 256 dist/PixelFlasher_MacOS_13.dmg > dist/PixelFlasher_MacOS_13.dmg.sha256
+      #    cat dist/PixelFlasher_MacOS_13.dmg.sha256
+      #  if: ${{ steps.build_app.outcome == 'success' }}
 
       - name: List contents of dist directory
         run: ls dist
