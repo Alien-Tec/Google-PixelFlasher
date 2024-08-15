@@ -118,11 +118,11 @@ jobs:
         run: mv dist/PixelFlasher.app dist/PixelFlasher_MacOS_13.app
         if: ${{ steps.build_app.outcome == 'failure' }}
 
-      - name: Get sha256 of the app
-        run: |
-          shasum -a 256 dist/PixelFlasher_MacOS_13.app > dist/PixelFlasher_MacOS_13.app.sha256
-          cat dist/PixelFlasher_MacOS_13.app.sha256
-          if: ${{ steps.build_app.outcome == 'failure' }}
+      #- name: Get sha256 of the app
+      #  run: |
+      #    shasum -a 256 dist/PixelFlasher_MacOS_13.app > dist/PixelFlasher_MacOS_13.app.sha256
+      #    cat dist/PixelFlasher_MacOS_13.app.sha256
+      #    if: ${{ steps.build_app.outcome == 'failure' }}
 
       # Upload app artifacts Mac-OS 13 to Actions
       - name: Upload Mac-OS 13 app Artifacts
