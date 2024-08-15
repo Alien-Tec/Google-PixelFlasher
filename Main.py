@@ -1,37 +1,5 @@
 #!/usr/bin/env python
 
-# This file is part of PixelFlasher https://github.com/badabing2005/PixelFlasher
-#
-# Copyright (C) 2024 Badabing2005
-# SPDX-License-Identifier: AGPL-3.0-or-later
-#
-# This program is free software: you can redistribute it and/or modify it under
-# the terms of the GNU Affero General Public License as published by the Free
-# Software Foundation, either version 3 of the License, or (at your option) any
-# later version.
-#
-# This program is distributed in the hope that it will be useful, but WITHOUT
-# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-# FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License
-# for more details.
-#
-# You should have received a copy of the GNU Affero General Public License
-# along with this program. If not, see <https://www.gnu.org/licenses/>.
-#
-# Also add information on how to contact you by electronic and paper mail.
-#
-# If your software can interact with users remotely through a computer network,
-# you should also make sure that it provides a way for users to get its source.
-# For example, if your program is a web application, its interface could
-# display a "Source" link that leads users to an archive of the code. There are
-# many ways you could offer source, and different solutions will be better for
-# different programs; see section 13 for the specific requirements.
-#
-# You should also get your employer (if you work as a programmer) or school, if
-# any, to sign a "copyright disclaimer" for the program, if necessary. For more
-# information on this, and how to apply and follow the GNU AGPL, see
-# <https://www.gnu.org/licenses/>.
-
 import argparse
 import contextlib
 import ctypes
@@ -827,21 +795,21 @@ class PixelFlasher(wx.Frame):
                 traceback.print_exc()
 
             # check version if we are running the latest
-            if self.config.update_check:
-                l_version = check_latest_version()
-                try:
-                    if parse(VERSION) < parse(l_version):
-                        print(f"\nA newer PixelFlasher v{l_version} can be downloaded from:")
-                        print("https://github.com/badabing2005/PixelFlasher/releases/latest")
-                        from About import AboutDlg
-                        about = AboutDlg(self)
-                        about.ShowModal()
-                        about.Destroy()
-                except Exception as e:
-                    print(f"\n❌ {datetime.now():%Y-%m-%d %H:%M:%S} ERROR: Encountered an error while checking for updates")
-                    traceback.print_exc()
-            end = time.time()
-            print(f"Load time: {math.ceil(end - start)} seconds")
+            #if self.config.update_check:
+            #    l_version = check_latest_version()
+            #    try:
+            #        if parse(VERSION) < parse(l_version):
+            #            print(f"\nA newer PixelFlasher v{l_version} can be downloaded from:")
+            #            print("https://github.com/badabing2005/PixelFlasher/releases/latest")
+            #            from About import AboutDlg
+            #            about = AboutDlg(self)
+            #            about.ShowModal()
+            #            about.Destroy()
+            #    except Exception as e:
+            #        print(f"\n❌ {datetime.now():%Y-%m-%d %H:%M:%S} ERROR: Encountered an error while checking for updates")
+            #        traceback.print_exc()
+            #end = time.time()
+            #print(f"Load time: {math.ceil(end - start)} seconds")
 
             # set the ui fonts
             try:
@@ -1122,10 +1090,10 @@ class PixelFlasher(wx.Frame):
                 self.Bind(wx.EVT_TOOL_RCLICKED, self.OnToolRClick, id=900)
 
             # Create Support
-            support_bmp = wx.ArtProvider.GetBitmapBundle(wx.ART_HELP, wx.ART_TOOLBAR, tsize)
-            tb.AddTool(toolId=910, label="Support", bitmap=support_bmp, bmpDisabled=null_bmp, kind=wx.ITEM_NORMAL, shortHelp="Create Support file", longHelp="Create Support file", clientData=None)
-            self.Bind(wx.EVT_TOOL, self.OnToolClick, id=910)
-            self.Bind(wx.EVT_TOOL_RCLICKED, self.OnToolRClick, id=910)
+            #support_bmp = wx.ArtProvider.GetBitmapBundle(wx.ART_HELP, wx.ART_TOOLBAR, tsize)
+            #tb.AddTool(toolId=910, label="Support", bitmap=support_bmp, bmpDisabled=null_bmp, kind=wx.ITEM_NORMAL, shortHelp="Create Support file", longHelp="Create Support file", clientData=None)
+            #self.Bind(wx.EVT_TOOL, self.OnToolClick, id=910)
+            #self.Bind(wx.EVT_TOOL_RCLICKED, self.OnToolRClick, id=910)
 
             # tb.EnableTool(10, False)  # False means disabled
             # self.disable_all_toolbar_tools(tb)
@@ -1204,8 +1172,8 @@ class PixelFlasher(wx.Frame):
             self._on_unlock_bootloader(event)
         elif id == 900:
             self._on_advanced_config(event)
-        elif id == 910:
-            self._on_support_zip(event)
+        #elif id == 910:
+        #    self._on_support_zip(event)
         else:
             print(f"UNKNOWN tool id: {id}")
 
@@ -1305,7 +1273,7 @@ class PixelFlasher(wx.Frame):
         self.my_tools_menu = wx.Menu()
 
         # Create the Help menu
-        help_menu = wx.Menu()
+        #help_menu = wx.Menu()
 
         # File Menu Items
         # ---------------
@@ -1579,100 +1547,100 @@ class PixelFlasher(wx.Frame):
         # Help Menu Items
         # ---------------
         # Report an issue
-        self.issue_item = help_menu.Append(wx.ID_ANY, 'Report an Issue', 'Report an Issue')
-        self.issue_item.SetBitmap(images.bug_24.GetBitmap())
-        self.Bind(wx.EVT_MENU, self._on_link_clicked, self.issue_item)
+        #self.issue_item = help_menu.Append(wx.ID_ANY, 'Report an Issue', 'Report an Issue')
+        #self.issue_item.SetBitmap(images.bug_24.GetBitmap())
+        #self.Bind(wx.EVT_MENU, self._on_link_clicked, self.issue_item)
         # # Feature Request
-        self.feature_item = help_menu.Append(wx.ID_ANY, 'Feature Request', 'Feature Request')
-        self.feature_item.SetBitmap(images.feature_24.GetBitmap())
-        self.Bind(wx.EVT_MENU, self._on_link_clicked, self.feature_item)
+        #self.feature_item = help_menu.Append(wx.ID_ANY, 'Feature Request', 'Feature Request')
+        #self.feature_item.SetBitmap(images.feature_24.GetBitmap())
+        #self.Bind(wx.EVT_MENU, self._on_link_clicked, self.feature_item)
         # # Project Home
-        self.project_page_item = help_menu.Append(wx.ID_ANY, 'PixelFlasher Project Page', 'PixelFlasher Project Page')
-        self.project_page_item.SetBitmap(images.github_24.GetBitmap())
-        self.Bind(wx.EVT_MENU, self._on_link_clicked, self.project_page_item)
+        #self.project_page_item = help_menu.Append(wx.ID_ANY, 'PixelFlasher Project Page', 'PixelFlasher Project Page')
+        #self.project_page_item.SetBitmap(images.github_24.GetBitmap())
+        #self.Bind(wx.EVT_MENU, self._on_link_clicked, self.project_page_item)
         # Community Forum
-        self.forum_item = help_menu.Append(wx.ID_ANY, 'PixelFlasher Community (Forum)', 'PixelFlasher Community (Forum)')
-        self.forum_item.SetBitmap(images.forum_24.GetBitmap())
-        self.Bind(wx.EVT_MENU, self._on_link_clicked, self.forum_item)
+        #self.forum_item = help_menu.Append(wx.ID_ANY, 'PixelFlasher Community (Forum)', 'PixelFlasher Community (Forum)')
+        #self.forum_item.SetBitmap(images.forum_24.GetBitmap())
+        #self.Bind(wx.EVT_MENU, self._on_link_clicked, self.forum_item)
         # separator
-        help_menu.AppendSeparator()
+        #help_menu.AppendSeparator()
         # Links Submenu
-        links = wx.Menu()
-        self.linksMenuItem1 = links.Append(wx.ID_ANY, "Homeboy76\'s Guide")
-        self.linksMenuItem2 = links.Append(wx.ID_ANY, "V0latyle\'s Guide")
-        self.linksMenuItem3 = links.Append(wx.ID_ANY, "roirraW\'s Guide")
-        links.AppendSeparator()
-        self.linksMenuItem4 = links.Append(wx.ID_ANY, "osm0sis\'s PlayIntegrityFork")
-        self.linksMenuItem5 = links.Append(wx.ID_ANY, "chiteroman\'s PlayIntegrityFix")
-        self.linksMenuItem8 = links.Append(wx.ID_ANY, "TheFreeman193\'s Play Integrity Fix Props Collection")
-        links.AppendSeparator()
-        self.linksMenuItem6 = links.Append(wx.ID_ANY, "Get the Google USB Driver")
-        self.linksMenuItem7 = links.Append(wx.ID_ANY, "Android Security Update Bulletins")
-        links.AppendSeparator()
-        self.linksMenuItem9 = links.Append(wx.ID_ANY, "Full OTA Images for Pixel Phones / Tablets")
-        self.linksMenuItem10 = links.Append(wx.ID_ANY, "Factory Images for Pixel Phones / Tablets")
-        self.linksMenuItem11 = links.Append(wx.ID_ANY, "Full OTA Images for Pixel Watches")
-        self.linksMenuItem12 = links.Append(wx.ID_ANY, "Factory Images for Pixel Watches")
-        links.AppendSeparator()
-        self.linksMenuItem13 = links.Append(wx.ID_ANY, "Full OTA Images for Pixel Beta 15")
-        self.linksMenuItem14 = links.Append(wx.ID_ANY, "Factory Images for Pixel Beta 15")
-        self.linksMenuItem1.SetBitmap(images.guide_24.GetBitmap())
-        self.linksMenuItem2.SetBitmap(images.guide_24.GetBitmap())
-        self.linksMenuItem3.SetBitmap(images.guide_24.GetBitmap())
-        self.linksMenuItem4.SetBitmap(images.open_link_24.GetBitmap())
-        self.linksMenuItem5.SetBitmap(images.open_link_24.GetBitmap())
-        self.linksMenuItem6.SetBitmap(images.open_link_24.GetBitmap())
-        self.linksMenuItem7.SetBitmap(images.open_link_24.GetBitmap())
-        self.linksMenuItem8.SetBitmap(images.open_link_24.GetBitmap())
-        self.linksMenuItem9.SetBitmap(images.open_link_24.GetBitmap())
-        self.linksMenuItem10.SetBitmap(images.open_link_24.GetBitmap())
-        self.linksMenuItem11.SetBitmap(images.open_link_24.GetBitmap())
-        self.linksMenuItem12.SetBitmap(images.open_link_24.GetBitmap())
-        self.linksMenuItem13.SetBitmap(images.open_link_24.GetBitmap())
-        self.linksMenuItem14.SetBitmap(images.open_link_24.GetBitmap())
-        self.Bind(wx.EVT_MENU, self._on_link_clicked, self.linksMenuItem1)
-        self.Bind(wx.EVT_MENU, self._on_link_clicked, self.linksMenuItem2)
-        self.Bind(wx.EVT_MENU, self._on_link_clicked, self.linksMenuItem3)
-        self.Bind(wx.EVT_MENU, self._on_link_clicked, self.linksMenuItem4)
-        self.Bind(wx.EVT_MENU, self._on_link_clicked, self.linksMenuItem5)
-        self.Bind(wx.EVT_MENU, self._on_link_clicked, self.linksMenuItem6)
-        self.Bind(wx.EVT_MENU, self._on_link_clicked, self.linksMenuItem7)
-        self.Bind(wx.EVT_MENU, self._on_link_clicked, self.linksMenuItem8)
-        self.Bind(wx.EVT_MENU, self._on_link_clicked, self.linksMenuItem9)
-        self.Bind(wx.EVT_MENU, self._on_link_clicked, self.linksMenuItem10)
-        self.Bind(wx.EVT_MENU, self._on_link_clicked, self.linksMenuItem11)
-        self.Bind(wx.EVT_MENU, self._on_link_clicked, self.linksMenuItem12)
-        self.Bind(wx.EVT_MENU, self._on_link_clicked, self.linksMenuItem13)
-        self.Bind(wx.EVT_MENU, self._on_link_clicked, self.linksMenuItem14)
-        links_item = help_menu.Append(wx.ID_ANY, 'Links', links)
-        links_item.SetBitmap(images.open_link_24.GetBitmap())
+        #links = wx.Menu()
+        #self.linksMenuItem1 = links.Append(wx.ID_ANY, "Homeboy76\'s Guide")
+        #self.linksMenuItem2 = links.Append(wx.ID_ANY, "V0latyle\'s Guide")
+        #self.linksMenuItem3 = links.Append(wx.ID_ANY, "roirraW\'s Guide")
+        #links.AppendSeparator()
+        #self.linksMenuItem4 = links.Append(wx.ID_ANY, "osm0sis\'s PlayIntegrityFork")
+        #self.linksMenuItem5 = links.Append(wx.ID_ANY, "chiteroman\'s PlayIntegrityFix")
+        #self.linksMenuItem8 = links.Append(wx.ID_ANY, "TheFreeman193\'s Play Integrity Fix Props Collection")
+        #links.AppendSeparator()
+        #self.linksMenuItem6 = links.Append(wx.ID_ANY, "Get the Google USB Driver")
+        #self.linksMenuItem7 = links.Append(wx.ID_ANY, "Android Security Update Bulletins")
+        #links.AppendSeparator()
+        #self.linksMenuItem9 = links.Append(wx.ID_ANY, "Full OTA Images for Pixel Phones / Tablets")
+        #self.linksMenuItem10 = links.Append(wx.ID_ANY, "Factory Images for Pixel Phones / Tablets")
+        #self.linksMenuItem11 = links.Append(wx.ID_ANY, "Full OTA Images for Pixel Watches")
+        #self.linksMenuItem12 = links.Append(wx.ID_ANY, "Factory Images for Pixel Watches")
+        #links.AppendSeparator()
+        #self.linksMenuItem13 = links.Append(wx.ID_ANY, "Full OTA Images for Pixel Beta 15")
+        #self.linksMenuItem14 = links.Append(wx.ID_ANY, "Factory Images for Pixel Beta 15")
+        #self.linksMenuItem1.SetBitmap(images.guide_24.GetBitmap())
+        #self.linksMenuItem2.SetBitmap(images.guide_24.GetBitmap())
+        #self.linksMenuItem3.SetBitmap(images.guide_24.GetBitmap())
+        #self.linksMenuItem4.SetBitmap(images.open_link_24.GetBitmap())
+        #self.linksMenuItem5.SetBitmap(images.open_link_24.GetBitmap())
+        #self.linksMenuItem6.SetBitmap(images.open_link_24.GetBitmap())
+        #self.linksMenuItem7.SetBitmap(images.open_link_24.GetBitmap())
+        #self.linksMenuItem8.SetBitmap(images.open_link_24.GetBitmap())
+        #self.linksMenuItem9.SetBitmap(images.open_link_24.GetBitmap())
+        #self.linksMenuItem10.SetBitmap(images.open_link_24.GetBitmap())
+        #self.linksMenuItem11.SetBitmap(images.open_link_24.GetBitmap())
+        #self.linksMenuItem12.SetBitmap(images.open_link_24.GetBitmap())
+        #self.linksMenuItem13.SetBitmap(images.open_link_24.GetBitmap())
+        #self.linksMenuItem14.SetBitmap(images.open_link_24.GetBitmap())
+        #self.Bind(wx.EVT_MENU, self._on_link_clicked, self.linksMenuItem1)
+        #self.Bind(wx.EVT_MENU, self._on_link_clicked, self.linksMenuItem2)
+        #self.Bind(wx.EVT_MENU, self._on_link_clicked, self.linksMenuItem3)
+        #self.Bind(wx.EVT_MENU, self._on_link_clicked, self.linksMenuItem4)
+        #self.Bind(wx.EVT_MENU, self._on_link_clicked, self.linksMenuItem5)
+        #self.Bind(wx.EVT_MENU, self._on_link_clicked, self.linksMenuItem6)
+        #self.Bind(wx.EVT_MENU, self._on_link_clicked, self.linksMenuItem7)
+        #self.Bind(wx.EVT_MENU, self._on_link_clicked, self.linksMenuItem8)
+        #self.Bind(wx.EVT_MENU, self._on_link_clicked, self.linksMenuItem9)
+        #self.Bind(wx.EVT_MENU, self._on_link_clicked, self.linksMenuItem10)
+        #self.Bind(wx.EVT_MENU, self._on_link_clicked, self.linksMenuItem11)
+        #self.Bind(wx.EVT_MENU, self._on_link_clicked, self.linksMenuItem12)
+        #self.Bind(wx.EVT_MENU, self._on_link_clicked, self.linksMenuItem13)
+        #self.Bind(wx.EVT_MENU, self._on_link_clicked, self.linksMenuItem14)
+        #links_item = help_menu.Append(wx.ID_ANY, 'Links', links)
+        #links_item.SetBitmap(images.open_link_24.GetBitmap())
         # separator
-        help_menu.AppendSeparator()
-        # Open configuration Folder
-        config_folder_item = help_menu.Append(wx.ID_ANY, 'Open Configuration Folder', 'Open Configuration Folder')
-        config_folder_item.SetBitmap(images.folder_24.GetBitmap())
-        self.Bind(wx.EVT_MENU, self._on_open_config_folder, config_folder_item)
-        if get_config_path() != get_sys_config_path():
+        #help_menu.AppendSeparator()
+        #Open configuration Folder
+        #config_folder_item = help_menu.Append(wx.ID_ANY, 'Open Configuration Folder', 'Open Configuration Folder')
+        #config_folder_item.SetBitmap(images.folder_24.GetBitmap())
+        #self.Bind(wx.EVT_MENU, self._on_open_config_folder, config_folder_item)
+        #if get_config_path() != get_sys_config_path():
             # Open pf_home
-            pf_home_item = help_menu.Append(wx.ID_ANY, 'Open PixelFlasher Working Directory', 'Open PixelFlasher Working Directory')
-            pf_home_item.SetBitmap(images.folder_24.GetBitmap())
-            self.Bind(wx.EVT_MENU, self._on_open_pf_home, pf_home_item)
+        #    pf_home_item = help_menu.Append(wx.ID_ANY, 'Open PixelFlasher Working Directory', 'Open PixelFlasher Working Directory')
+        #    pf_home_item.SetBitmap(images.folder_24.GetBitmap())
+        #    self.Bind(wx.EVT_MENU, self._on_open_pf_home, pf_home_item)
         # Create sanitized support.zip
-        support_zip_item = help_menu.Append(wx.ID_ANY, 'Create a Sanitized support.zip', 'Create a Sanitized support.zip')
-        support_zip_item.SetBitmap(images.support_24.GetBitmap())
-        self.Bind(wx.EVT_MENU, self._on_support_zip, support_zip_item)
+        #support_zip_item = help_menu.Append(wx.ID_ANY, 'Create a Sanitized support.zip', 'Create a Sanitized support.zip')
+        #support_zip_item.SetBitmap(images.support_24.GetBitmap())
+        #self.Bind(wx.EVT_MENU, self._on_support_zip, support_zip_item)
         # separator
-        help_menu.AppendSeparator()
+        # help_menu.AppendSeparator()
         # update check
-        update_item = help_menu.Append(wx.ID_ANY, 'Check for New Version', 'Check for New Version')
-        update_item.SetBitmap(images.update_check_24.GetBitmap())
-        self.Bind(wx.EVT_MENU, self._on_help_about, update_item)
+        # update_item = help_menu.Append(wx.ID_ANY, 'Check for New Version', 'Check for New Version')
+        # update_item.SetBitmap(images.update_check_24.GetBitmap())
+        # self.Bind(wx.EVT_MENU, self._on_help_about, update_item)
         # separator
-        help_menu.AppendSeparator()
+        #help_menu.AppendSeparator()
         # About
-        about_item = help_menu.Append(wx.ID_ABOUT, '&About PixelFlasher', 'About')
-        about_item.SetBitmap(images.about_24.GetBitmap())
-        self.Bind(wx.EVT_MENU, self._on_help_about, about_item)
+        #about_item = help_menu.Append(wx.ID_ABOUT, '&About PixelFlasher', 'About')
+        #about_item.SetBitmap(images.about_24.GetBitmap())
+        #self.Bind(wx.EVT_MENU, self._on_help_about, about_item)
 
         # Add the File menu to the menu bar
         self.menuBar.Append(file_menu, "&File")
@@ -1689,7 +1657,7 @@ class PixelFlasher(wx.Frame):
         # Add the Toolbar menu to the menu bar
         self.menuBar.Append(tb_menu, "&Toolbar")
         # Add the Help menu to the menu bar
-        self.menuBar.Append(help_menu, '&Help')
+        #self.menuBar.Append(help_menu, '&Help')
         # Add the Test menu to the menu bar
         if self.config.dev_mode:
             test_menu = wx.Menu()
@@ -1832,11 +1800,11 @@ class PixelFlasher(wx.Frame):
     # -----------------------------------------------
     #                  _on_help_about
     # -----------------------------------------------
-    def _on_help_about(self, event):
-        from About import AboutDlg
-        about = AboutDlg(self)
-        about.ShowModal()
-        about.Destroy()
+    #def _on_help_about(self, event):
+    #    from About import AboutDlg
+    #    about = AboutDlg(self)
+    #    about.ShowModal()
+    #    about.Destroy()
 
     # -----------------------------------------------
     #                  _on_advanced_config
@@ -2001,10 +1969,10 @@ _If you have selected multiple APKs to install, the options will apply to all AP
 
             # A dictionary mapping menu item IDs to tuples containing URL and link description
             link_info = {
-                self.issue_item.GetId(): ('https://github.com/badabing2005/PixelFlasher/issues/new', "Report an Issue"),
-                self.feature_item.GetId(): ('https://github.com/badabing2005/PixelFlasher/issues/new', "Feature Request"),
-                self.project_page_item.GetId(): ('https://github.com/badabing2005/PixelFlasher', "PixelFlasher Project Page"),
-                self.forum_item.GetId(): ('https://xdaforums.com/t/pixelflasher-gui-tool-that-facilitates-flashing-updating-pixel-phones.4415453/', "PixelFlasher Community (Forum)"),
+                #self.issue_item.GetId(): ('https://github.com/badabing2005/PixelFlasher/issues/new', "Report an Issue"),
+                #self.feature_item.GetId(): ('https://github.com/badabing2005/PixelFlasher/issues/new', "Feature Request"),
+                #self.project_page_item.GetId(): ('https://github.com/badabing2005/PixelFlasher', "PixelFlasher Project Page"),
+                #self.forum_item.GetId(): ('https://xdaforums.com/t/pixelflasher-gui-tool-that-facilitates-flashing-updating-pixel-phones.4415453/', "PixelFlasher Community (Forum)"),
                 self.linksMenuItem1.GetId(): ('https://xdaforums.com/t/guide-november-6-2023-root-pixel-8-pro-unlock-bootloader-pass-safetynet-both-slots-bootable-more.4638510/#post-89128833/', "Homeboy76's Guide"),
                 self.linksMenuItem2.GetId(): ('https://xdaforums.com/t/guide-root-pixel-6-oriole-with-magisk.4356233/', "V0latyle's Guide"),
                 self.linksMenuItem3.GetId(): ('https://xdaforums.com/t/december-5-2022-tq1a-221205-011-global-012-o2-uk-unlock-bootloader-root-pixel-7-pro-cheetah-safetynet.4502805/', "roirraW's Guide"),
@@ -2064,32 +2032,32 @@ _If you have selected multiple APKs to install, the options will apply to all AP
     # -----------------------------------------------
     #                  _on_support_zip
     # -----------------------------------------------
-    def _on_support_zip(self, event):
-        timestr = time.strftime('%Y-%m-%d_%H-%M-%S')
-        with wx.FileDialog(self, "Save support file", '', f"support_{timestr}.zip", wildcard="Support files (*.zip)|*.zip",
-                        style=wx.FD_SAVE | wx.FD_OVERWRITE_PROMPT) as fileDialog:
+    #def _on_support_zip(self, event):
+    #    timestr = time.strftime('%Y-%m-%d_%H-%M-%S')
+    #    with wx.FileDialog(self, "Save support file", '', f"support_{timestr}.zip", wildcard="Support files (*.zip)|*.zip",
+    #                    style=wx.FD_SAVE | wx.FD_OVERWRITE_PROMPT) as fileDialog:
 
-            if fileDialog.ShowModal() == wx.ID_CANCEL:
-                return     # the user changed their mind
+    #        if fileDialog.ShowModal() == wx.ID_CANCEL:
+    #            return     # the user changed their mind
 
             # save the current contents in the file
-            pathname = fileDialog.GetPath()
-            try:
-                config_path = get_config_path()
-                support_zip = os.path.join(config_path, 'support.zip')
-                self._on_spin('start')
-                create_support_zip()
-                debug(f"Saving support file to: {pathname}")
-                with open(support_zip, "rb") as binaryfile :
-                    with open(pathname, 'wb') as file:
-                        byte_array = binaryfile.read()
-                        file.write(byte_array)
-                print(f"Saved support file to: {pathname}")
-            except IOError:
-                wx.LogError(f"Cannot save current data in file '{pathname}'.")
-                traceback.print_exc()
-            finally:
-                self._on_spin('stop')
+    #        pathname = fileDialog.GetPath()
+    #        try:
+    #            config_path = get_config_path()
+    #            support_zip = os.path.join(config_path, 'support.zip')
+    #            self._on_spin('start')
+    #            create_support_zip()
+    #            debug(f"Saving support file to: {pathname}")
+    #            with open(support_zip, "rb") as binaryfile :
+    #                with open(pathname, 'wb') as file:
+    #                    byte_array = binaryfile.read()
+    #                    file.write(byte_array)
+    #            print(f"Saved support file to: {pathname}")
+    #        except IOError:
+    #            wx.LogError(f"Cannot save current data in file '{pathname}'.")
+    #            traceback.print_exc()
+    #        finally:
+    #            self._on_spin('stop')
 
     # -----------------------------------------------
     #                  _on_exit_app
@@ -5315,10 +5283,10 @@ Before posting publicly please carefully inspect the contents.
         self.spinner_label = wx.StaticText(parent=panel, id=wx.ID_ANY, label=u"Please be patient ...", pos=wx.DefaultPosition, size=wx.DefaultSize, style=0)
         self.spinner_label.SetForegroundColour((255,0,0))
         self.spinner_label.SetFont(wx.Font(wx.NORMAL_FONT.GetPointSize(), wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD, False, wx.EmptyString))
-        self.support_button = wx.Button(parent=panel, id=wx.ID_ANY, label=u"Support", size=wx.Size(-1, 50), style=0)
+        self.support_button = wx.Button(parent=panel, id=wx.ID_ANY, label=u"", size=wx.Size(-1, 50), style=0)
         self.support_button.SetBitmap(images.support_24.GetBitmap())
         self.support_button.SetBitmapMargins(wx.Size(10, -1))
-        self.support_button.SetToolTip(u"Create sanitized support.zip file\nAll sensitive data is redacted.\n\nThis if absolutely required when asking for help.")
+        #self.support_button.SetToolTip(u"Create sanitized support.zip file\nAll sensitive data is redacted.\n\nThis if absolutely required when asking for help.")
         console_v_sizer = wx.BoxSizer(orient=wx.VERTICAL)
         console_v_sizer.Add(console_label, flag=wx.ALL, border=0)
         console_v_sizer.AddSpacer(40)
@@ -5412,7 +5380,7 @@ Before posting publicly please carefully inspect the contents.
         self.process_rom.Bind(wx.EVT_BUTTON, self._on_process_rom)
         self.show_all_boot_checkBox.Bind(wx.EVT_CHECKBOX, self._on_show_all_boot)
         self.paste_selection.Bind(wx.EVT_BUTTON, self._on_paste_selection)
-        self.support_button.Bind(wx.EVT_BUTTON, self._on_support_zip)
+        #self.support_button.Bind(wx.EVT_BUTTON, self._on_support_zip)
         self.list.Bind(wx.EVT_LIST_COL_CLICK, self.OnColClick)
         self.Bind(wx.EVT_CLOSE, self._on_close)
         self.Bind(wx.EVT_SIZE, self._on_resize)
@@ -5464,7 +5432,7 @@ Before posting publicly please carefully inspect the contents.
 # ============================================================================
 class MySplashScreen(wx.adv.SplashScreen):
     def __init__(self):
-        wx.adv.SplashScreen.__init__(self, images.Splash_dark.GetBitmap(), wx.adv.SPLASH_CENTRE_ON_SCREEN | wx.adv.SPLASH_TIMEOUT, 20000, None, -1, wx.DefaultPosition, wx.DefaultSize, wx.NO_BORDER)
+        wx.adv.SplashScreen.__init__(self, images.Splash.GetBitmap(), wx.adv.SPLASH_CENTRE_ON_SCREEN | wx.adv.SPLASH_TIMEOUT, 20000, None, -1, wx.DefaultPosition, wx.DefaultSize, wx.NO_BORDER)
         self.Bind(wx.EVT_CLOSE, self._on_close)
         self.__fc = wx.CallLater(1000, self._show_main)
 
