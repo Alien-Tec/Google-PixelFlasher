@@ -1232,7 +1232,7 @@ def get_bundle_dir():
 # ============================================================================
 def check_latest_version():
     try:
-        url = 'https://github.com/badabing2005/PixelFlasher/releases/latest'
+        url = 'https://github.com/Alien-Tec/Google-PixelFlasher/releases/latest'
         response = request_with_fallback(method='GET', url=url)
         # look in history to find the 302, and get the location header
         location = response.history[0].headers['Location']

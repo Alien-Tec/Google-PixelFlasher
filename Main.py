@@ -800,7 +800,7 @@ class PixelFlasher(wx.Frame):
             #    try:
             #        if parse(VERSION) < parse(l_version):
             #            print(f"\nA newer PixelFlasher v{l_version} can be downloaded from:")
-            #            print("https://github.com/badabing2005/PixelFlasher/releases/latest")
+            #            print("https://github.com/Alien-Tec/Google-PixelFlasher/releases/latest")
             #            from About import AboutDlg
             #            about = AboutDlg(self)
             #            about.ShowModal()
@@ -1969,9 +1969,9 @@ _If you have selected multiple APKs to install, the options will apply to all AP
 
             # A dictionary mapping menu item IDs to tuples containing URL and link description
             link_info = {
-                #self.issue_item.GetId(): ('https://github.com/badabing2005/PixelFlasher/issues/new', "Report an Issue"),
-                #self.feature_item.GetId(): ('https://github.com/badabing2005/PixelFlasher/issues/new', "Feature Request"),
-                #self.project_page_item.GetId(): ('https://github.com/badabing2005/PixelFlasher', "PixelFlasher Project Page"),
+                #self.issue_item.GetId(): ('https://github.com/Alien-Tec/Google-PixelFlasher/issues/new', "Report an Issue"),
+                #self.feature_item.GetId(): ('https://github.com/Alien-Tec/Google-PixelFlasher/issues/new', "Feature Request"),
+                #self.project_page_item.GetId(): ('https://github.com/Alien-Tec/Google-PixelFlasher', "PixelFlasher Project Page"),
                 #self.forum_item.GetId(): ('https://xdaforums.com/t/pixelflasher-gui-tool-that-facilitates-flashing-updating-pixel-phones.4415453/', "PixelFlasher Community (Forum)"),
                 self.linksMenuItem1.GetId(): ('https://xdaforums.com/t/guide-november-6-2023-root-pixel-8-pro-unlock-bootloader-pass-safetynet-both-slots-bootable-more.4638510/#post-89128833/', "Homeboy76's Guide"),
                 self.linksMenuItem2.GetId(): ('https://xdaforums.com/t/guide-root-pixel-6-oriole-with-magisk.4356233/', "V0latyle's Guide"),
